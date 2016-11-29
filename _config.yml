@@ -1,0 +1,116 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: formulahendry
+subtitle: A Software Engineer @ Hongkou
+description:
+author: formulahendry
+language:
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://formulahendry.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: spfk
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: https://github.com/formulahendry/formulahendry.github.io.git
+
+theme_config:
+  # Header | 主菜单
+  ## About Page: `hexo new page about`
+  ## Tags Cloud Page: `hexo new page tags`
+  menu:
+    首页: /
+    关于: /about
+  
+  # Link to your avatar | 填写头像地址
+  avatar: assets/img/logo.jpg
+
+  # Small icon of Your site | 站点小图标地址
+  favicon: assets/img/logo.jpg
+
+  # Social info. Bar | 社交信息展示
+  ## Keep "mailto:" in Email | 设置 Email 时保留 "mailto:"
+  ## Encrypt email 加密邮件地址 http://ctrlq.org/encode/
+  ## RSS requires a plugin to take effect | 使用 RSS 需先安装对应插件
+  ## https://github.com/hexojs/hexo-generator-feed
+  subnav:
+    mail: "#"
+    github: "https://github.com/formulahendry"
+    zhihu: "#"
+    weibo: "#"
+    google: "#"
+    twitter: "#"
+    linkedin: "#"
+
+  # Blogroll, Link exchange | 友情链接
+  # friends: false
+  friends:
+    formulahendry MSDN: https://blogs.msdn.microsoft.com/formulahendry/
+
+  #是否开启“关于我”。
+  aboutme: 码农@虹口
+  #aboutme: false
+
+  # 不蒜子网站计数设置
+  # http://ibruce.info/2015/04/04/busuanzi/
+  visit_counter:
+    on: true
+    site_visit: 到访数
+    page_visit: 本页阅读量
