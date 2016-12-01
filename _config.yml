@@ -98,6 +98,7 @@ theme_config:
     google: "#"
     twitter: "#"
     linkedin: "#"
+    rss: /atom.xml
 
   # Blogroll, Link exchange | 友情链接
   # friends: false
@@ -121,3 +122,21 @@ theme_config:
     # 是否开启多说评论，http://duoshuo.com/create-site/
     # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分
     # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
+
+  # Background | 背景
+  ## "background_sum": show images form /source/background/的图片数目
+  ## "on: true": 自动随机显示这5张图片
+  ## "on: false": 自定义显示图片设置background_image: 5
+  background:
+    on: false
+    background_sum: 24
+    background_image: 10
+
+  # 百度、谷歌站长验证。填写 HTML 标签 content
+  # Site Verification for Google and Baidu. HTML label content.
+  google_site: 
+  baidu_site: SVuHidI5QX
+
+  # Fill in Google Analytics tracking ID, #e.g. UA-XXXXX-X, or Baidu Analytics hash key
+  google_analytics: UA-88313303-1
+  baidu_analytics: 
