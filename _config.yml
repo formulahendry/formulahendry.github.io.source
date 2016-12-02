@@ -135,7 +135,7 @@ theme_config:
 
   # 百度、谷歌站长验证。填写 HTML 标签 content
   # Site Verification for Google and Baidu. HTML label content.
-  google_site: 
+  google_site: zlAjmLCs5fLorMqjFd1TgfKzswUyKamRr9JML6FOnEI
   baidu_site: SVuHidI5QX
 
   # Fill in Google Analytics tracking ID, #e.g. UA-XXXXX-X, or Baidu Analytics hash key
