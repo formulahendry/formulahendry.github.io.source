@@ -28,7 +28,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -92,19 +92,28 @@ theme_config:
   ## RSS requires a plugin to take effect | 使用 RSS 需先安装对应插件
   ## https://github.com/hexojs/hexo-generator-feed
   subnav:
-    mail: "#"
+    mail: "mailto:formulahendry@gmail.com"
     github: "https://github.com/formulahendry"
-    zhihu: "#"
-    weibo: "#"
-    google: "#"
-    twitter: "#"
-    linkedin: "#"
+    zhihu: "https://www.zhihu.com/people/han-jun-96-36"
+    weibo: "http://weibo.com/formulahendry"
+    google: "https://plus.google.com/u/0/108325760150652720243"
+    twitter: "https://twitter.com/formulahendry"
+    linkedin: "https://cn.linkedin.com/in/jun-han"
     rss: /atom.xml
+    # facebook: "#"
+    # pinterest: "#"
+    # QQ: "#"
+    # wechat: "#"
+    # douban: "#"
+    # pinboard: "#"
+    # stackoverflow: "#"
+    # Instagram: "#"
+    # segmentfault: "#"
 
   # Blogroll, Link exchange | 友情链接
   # friends: false
   friends:
-    formulahendry MSDN: https://blogs.msdn.microsoft.com/formulahendry/
+    formulahendry MSDN Blog: https://blogs.msdn.microsoft.com/formulahendry/
 
   #是否开启“关于我”。
   aboutme: 码农@虹口
@@ -141,3 +150,10 @@ theme_config:
   # Fill in Google Analytics tracking ID, #e.g. UA-XXXXX-X, or Baidu Analytics hash key
   google_analytics: UA-88313303-1
   baidu_analytics: 
+
+  # 自定义"阅读全文"链接按钮的显示文字
+  # Customize the text on excerpt link
+  excerpt_link: 阅读全文 #修改more>>的文字
+
+  # A标签提示
+  TipTitle: true
