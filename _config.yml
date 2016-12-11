@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: spfk
+theme: formulahendry
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,10 +81,10 @@ theme_config:
     关于: /about
   
   # Link to your avatar | 填写头像地址
-  avatar: assets/img/logo.jpg
+  avatar: /assets/img/logo.jpg
 
   # Small icon of Your site | 站点小图标地址
-  favicon: assets/img/logo.jpg
+  favicon: /assets/img/logo.jpg
 
   # Social info. Bar | 社交信息展示
   ## Keep "mailto:" in Email | 设置 Email 时保留 "mailto:"
@@ -157,3 +157,15 @@ theme_config:
 
   # A标签提示
   TipTitle: true
+
+  # 打赏
+  # 请在需要打赏的文章的md文件头部，设置属性reward: true
+
+  # 打赏基础设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+  reward_type: 1
+  # 打赏wording
+  reward_wording: '谢谢你请我吃糖果'
+  # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+  alipay: /assets/img/alipay.png
+  # 微信二维码图片地址
+  weixin: 
