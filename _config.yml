@@ -81,10 +81,10 @@ theme_config:
     关于: /about
   
   # Link to your avatar | 填写头像地址
-  avatar: /assets/img/logo.jpg
+  avatar: assets/img/logo.jpg
 
   # Small icon of Your site | 站点小图标地址
-  favicon: /assets/img/logo.jpg
+  favicon: assets/img/logo.jpg
 
   # Social info. Bar | 社交信息展示
   ## Keep "mailto:" in Email | 设置 Email 时保留 "mailto:"
