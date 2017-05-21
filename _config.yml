@@ -125,9 +125,16 @@ theme_config:
     on: true
     site_visit: 到访数
     page_visit: 本页阅读量
+  
+  disqus: 
+    on: true
+    shortname: formulahendry
+    # https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
+    # It is unnecessary to enable disqus here if 
+    # you have set "disqus_shortname" in your site's "_config.yml" 
 
   duoshuo: 
-    on: true
+    on: false
     domain: formulahendry
     # 是否开启多说评论，http://duoshuo.com/create-site/
     # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分
