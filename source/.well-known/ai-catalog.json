@@ -1,0 +1,26 @@
+[
+  {
+    "specVersion": "1.0",
+    "host": {
+      "displayName": "formulahendry",
+      "identifier": "did:web:formulahendry.github.io"
+    },
+    "entries": [
+      {
+        "identifier": "urn:air:formulahendry.github.io:server:code-runner",
+        "displayName": "Code Runner MCP Server",
+        "type": "application/mcp-server-card+json",
+        "url": "https://formulahendry.github.io/.well-known/code-runner.server.json",
+        "capabilities": ["run-code"],
+        "description": "MCP server for running a code snippet and showing the result. Supports 40+ programming languages including JavaScript, TypeScript, Python, PHP, Perl, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, C# Script, VBScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml, R, AppleScript, Elixir, Clojure, Racket, Scheme, AutoHotkey, AutoIt, Kotlin Script, Dart, Haskell, Nim, Lisp, V, SCSS and Sass.",
+        "representativeQueries": [
+          "run this python snippet and show the output",
+          "execute a javascript code snippet",
+          "quickly test this go function",
+          "evaluate a typescript expression",
+          "run this shell script and return the result"
+        ]
+      }
+    ]
+  }
+]
