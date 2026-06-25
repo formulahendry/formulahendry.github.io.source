@@ -41,7 +41,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          # Hexo 3.2 (2016) crashes on very new Node: `util.isDate` was
+          # removed, breaking hexo-front-matter ("isDate is not a function").
+          # Node 22 (LTS "Jod") still ships util.isDate and builds the site
+          # correctly. Do NOT use lts/* — it resolves to a newer, broken Node.
+          node-version: '22'
 
       - name: Install dependencies
         run: |
