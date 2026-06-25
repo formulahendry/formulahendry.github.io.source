@@ -1,0 +1,76 @@
+name: Build and Deploy Hexo
+
+# Replaces the old (defunct) AppVeyor pipeline.
+# Builds the Hexo site from this source repo and pushes the generated
+# `public/` output to the live GitHub Pages repo (formulahendry.github.io).
+#
+# Prerequisite (one-time):
+#   Create a repo secret named DEPLOY_TOKEN containing a GitHub Personal
+#   Access Token (classic: `repo` scope, or fine-grained: Contents=Read/Write
+#   on formulahendry/formulahendry.github.io). The token's account must have
+#   push access to the live repo.
+#
+# IMPORTANT - Node version & the Hexo 3.2 empty-file bug:
+#   This site runs Hexo 3.2 (2016-era). On modern Node, Hexo 3.x can
+#   silently copy static assets as 0-byte files (images, CSS, and the
+#   .well-known JSON all come out empty). The "Sanity check" step below
+#   FAILS the build if that happens, so a broken site is never published.
+#   We use the current LTS Node. If the sanity check ever fails, pin an
+#   older `node-version` (e.g. '14', '12', '10') until assets copy
+#   correctly, or upgrade Hexo.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-hexo
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -g hexo-cli
+
+      - name: Generate static site
+        run: hexo clean && hexo generate
+
+      - name: Sanity check generated assets
+        run: |
+          set -e
+          fail() { echo "::error::$1"; echo "Likely the Hexo 3.2 + new-Node 0-byte asset bug. Adjust node-version in this workflow."; exit 1; }
+          [ -s public/.well-known/ai-catalog.json ] || fail "public/.well-known/ai-catalog.json is empty or missing"
+          [ -s public/.well-known/code-runner.server.json ] || fail "public/.well-known/code-runner.server.json is empty or missing"
+          [ -s public/index.html ] || fail "public/index.html is empty or missing"
+          echo "Assets look good."
+
+      - name: Deploy to GitHub Pages repo
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          set -e
+          cd public
+          touch .nojekyll
+          git init -q
+          git checkout -q -b master
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Update static site (${GITHUB_SHA::7})"
+          git push -f "https://x-access-token:${DEPLOY_TOKEN}@github.com/formulahendry/formulahendry.github.io.git" master:master
