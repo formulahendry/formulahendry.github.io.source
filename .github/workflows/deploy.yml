@@ -41,11 +41,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # Hexo 3.2 (2016) crashes on very new Node: `util.isDate` was
-          # removed, breaking hexo-front-matter ("isDate is not a function").
-          # Node 22 (LTS "Jod") still ships util.isDate and builds the site
-          # correctly. Do NOT use lts/* — it resolves to a newer, broken Node.
-          node-version: '22'
+          # This site uses Hexo 3.9 with hexo-fs 1.0.2, whose file-writing
+          # only works on Node 10 and older. On Node 14/22/24 every output
+          # file (HTML, CSS, images, the .well-known JSON) is written as
+          # 0 bytes. Verified locally: Node 10 produces correct, non-empty
+          # output; Node 14+ does not. The "Sanity check" step below guards
+          # against silent regressions. Upgrading Hexo would let us move to
+          # a modern Node, but that risks the custom theme.
+          node-version: '10'
 
       - name: Install dependencies
         run: |
